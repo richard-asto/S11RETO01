@@ -87,48 +87,72 @@
         // { usuario: "admin", contrasena: "1234" },
         // { usuario: "user", contrasena: "abcd" }
         // ];
+
         // // Respuesta:
-        const usuariosRegistrados = [
-            { usuario: "admin", contrasena: "1234" },
-            { usuario: "user", contrasena: "abcd" }
-        ];
+        // const usuariosRegistrados = [
+        //     { usuario: "admin", contrasena: "1234" },
+        //     { usuario: "user", contrasena: "abcd" }
+        // ];
 
-        function autenticar(usuario, pass) {
-            for (let u of usuariosRegistrados) {
-                if (u.usuario === usuario && u.contrasena === pass) {
-                    return true;
-                }
-            }
-            return false;
-        }
+        // function autenticar(usuario, pass) {
+        //     for (let u of usuariosRegistrados) {
+        //         if (u.usuario === usuario && u.contrasena === pass) {
+        //             return true;
+        //         }
+        //     }
+        //     return false;
+        // }
 
-        function loginMaxIntentos(intentos) {
-            let contador = 0;
+        // function loginMaxIntentos(intentos) {
+        //     let contador = 0;
 
-            while (contador < intentos) {
-                let usuario = prompt("Ingrese usuario:");
-                let pass = prompt("Ingrese contraseña:");
+        //     while (contador < intentos) {
+        //         let usuario = prompt("Ingrese usuario:");
+        //         let pass = prompt("Ingrese contraseña:");
 
-                if (autenticar(usuario, pass)) {
-                    alert("Acceso permitido");
-                    return; // Se detiene aquí
-                }
-                contador++;
-                if (contador === 1) alert("Credenciales incorrectas. Intento 1");
-                if (contador === 2) alert("Credenciales incorrectas. Intento 2");
-                if (contador === intentos) {
-                    alert("Credenciales incorrectas. Acceso bloqueado");
-                    return;
-                }
-            }
-        }
-        let login = loginMaxIntentos(3);
+        //         if (autenticar(usuario, pass)) {
+        //             alert("Acceso permitido");
+        //             return; // Se detiene aquí
+        //         }
+        //         contador++;
+        //         if (contador === 1) alert("Credenciales incorrectas. Intento 1");
+        //         if (contador === 2) alert("Credenciales incorrectas. Intento 2");
+        //         if (contador === intentos) {
+        //             alert("Credenciales incorrectas. Acceso bloqueado");
+        //             return;
+        //         }
+        //     }
+        // }
+        // let login = loginMaxIntentos(3);
+
         // //------------------------------------------------------------------------//
         // 5.	Tienes un arreglo con las edades de un grupo de personas. El sistema necesita
         //  contar cuántas personas son menores de edad (menores de 18 años) y cuántas son
         //  adultas.
         // let edades = [12, 18, 25, 15, 30, 17];
+
         // // Respuesta:
+        function contarEdades(edades) {
+            let menores = 0;
+            let adultos = 0;
+
+            for (let i = 0; i < edades.length; i++) {
+                if (edades[i] < 18) {
+                    menores++;
+                } else {
+                    adultos++;
+                }
+            }
+            return { menores, adultos };
+        }
+
+        // let edades = [12, 18, 25, 15, 30, 17];
+        // console.log(contarEdades(edades));
+
+        // Ingresar por el prompt el arreglo de edades
+        let entrada = prompt("Ingrese las edades separadas por coma. Ej: 12,18,25,15,30,17");
+        let edades = entrada.split(",").map(Number); // Convertir la entrada a arreglo de números
+        console.log(contarEdades(edades));
 
         // //------------------------------------------------------------------------//
         // 6.	En un restaurante, los pedidos se gestionan a través de un sistema en línea.
