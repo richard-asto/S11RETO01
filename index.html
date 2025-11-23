@@ -36,29 +36,29 @@
         //  pequeño en un arreglo de números.
         // let numeros = [3, 7, 1, 9, 4]
         // // Respuesta:
-        function diferenciaMayorMenor(arr) {
-            if (arr.length === 0) {
-                return "El arreglo está vacío";
-            }
+        // function diferenciaMayorMenor(arr) {
+        //     if (arr.length === 0) {
+        //         return "El arreglo está vacío";
+        //     }
 
-            let mayor = arr[0];
-            let menor = arr[0];
+        //     let mayor = arr[0];
+        //     let menor = arr[0];
 
-            for (let i = 1; i < arr.length; i++) {
-                if (arr[i] > mayor) {
-                    mayor = arr[i];
-                }
-                if (arr[i] < menor) {
-                    menor = arr[i];
-                }
-            }
-            return mayor - menor;
-        }
-        // Con los valores del ejercicio
-        let numeros = [3, 7, 1, 9, 4];
-        console.log(diferenciaMayorMenor(numeros));
+        //     for (let i = 1; i < arr.length; i++) {
+        //         if (arr[i] > mayor) {
+        //             mayor = arr[i];
+        //         }
+        //         if (arr[i] < menor) {
+        //             menor = arr[i];
+        //         }
+        //     }
+        //     return mayor - menor;
+        // }
+        // // Con los valores del ejercicio
+        // let numeros = [3, 7, 1, 9, 4];
+        // console.log(diferenciaMayorMenor(numeros));
 
-        // // Pedir valores al usuario
+        // // Si se desea pedir valores al usuario, comentar las lineas 57 y 58 y activar esta seccion
         // let entrada = prompt("Ingresa números separados por coma. Ejemplo: 3,7,2,11,4");
         // let numeros = entrada.split(",").map(Number);
         // console.log(diferenciaMayorMenor(numeros));
@@ -68,7 +68,16 @@
         //  total de la cuenta es mayor a 50, se aplica una propina del 15%. Si es menor
         //  o igual a 50, se aplica una propina del 10%.
         // // Respuesta:
+        function calcularPropina(total) {
+            return total > 50 ? total * 0.15 : total * 0.10;
+        }
 
+        // Pedir el total al usuario
+        let totalCuenta = Number(prompt("Ingrese el total de la cuenta:"));
+        let propina = calcularPropina(totalCuenta); // Calcular la propina
+
+        // Mostrar el resultado
+        console.log("La cuenta total es: USD " + totalCuenta + " y La propina es: USD " + propina);
 
         // //------------------------------------------------------------------------//
         // // 4.	En un sistema de autenticación de usuarios, se requiere verificar si las
