@@ -15,28 +15,53 @@
         // 1.	Dado un número, crea una función que verifique si es primo. Un número
         //  es primo si es mayor que 1 y no tiene divisores aparte de 1 y él mismo.
         // // Respuesta:
-        function esPrimo(num) {
-            if (num <= 1) return false;
-            for (let i = 2; i <= num / 2; i++) {
-                if (num % i === 0) return false;
-            }
-            return true;
-        }
+        // function esPrimo(num) {
+        //     if (num <= 1) return false;
+        //     for (let i = 2; i <= num / 2; i++) {
+        //         if (num % i === 0) return false;
+        //     }
+        //     return true;
+        // }
 
-        let numero = Number(prompt("Ingresa un número para verificar si es primo:"));
+        // let numero = Number(prompt("Ingresa un número para verificar si es primo:"));
 
-        if (esPrimo(numero)) {
-            console.log(numero + " es primo");
-        } else {
-            console.log(numero + " NO es primo");
-        }
+        // if (esPrimo(numero)) {
+        //     console.log(numero + " es primo");
+        // } else {
+        //     console.log(numero + " NO es primo");
+        // }
 
         // //------------------------------------------------------------------------//
         // 2.	Crea una función que calcule la diferencia entre el número más grande y el más
         //  pequeño en un arreglo de números.
         // let numeros = [3, 7, 1, 9, 4]
         // // Respuesta:
+        function diferenciaMayorMenor(arr) {
+            if (arr.length === 0) {
+                return "El arreglo está vacío";
+            }
 
+            let mayor = arr[0];
+            let menor = arr[0];
+
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] > mayor) {
+                    mayor = arr[i];
+                }
+                if (arr[i] < menor) {
+                    menor = arr[i];
+                }
+            }
+            return mayor - menor;
+        }
+        // Con los valores del ejercicio
+        let numeros = [3, 7, 1, 9, 4];
+        console.log(diferenciaMayorMenor(numeros));
+
+        // // Pedir valores al usuario
+        // let entrada = prompt("Ingresa números separados por coma. Ejemplo: 3,7,2,11,4");
+        // let numeros = entrada.split(",").map(Number);
+        // console.log(diferenciaMayorMenor(numeros));
 
         // //------------------------------------------------------------------------//
         // 3.	El sistema debe calcular la propina de una cuenta en un restaurante. Si el
