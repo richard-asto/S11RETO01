@@ -68,16 +68,16 @@
         //  total de la cuenta es mayor a 50, se aplica una propina del 15%. Si es menor
         //  o igual a 50, se aplica una propina del 10%.
         // // Respuesta:
-        function calcularPropina(total) {
-            return total > 50 ? total * 0.15 : total * 0.10;
-        }
+        // function calcularPropina(total) {
+        //     return total > 50 ? total * 0.15 : total * 0.10;
+        // }
 
-        // Pedir el total al usuario
-        let totalCuenta = Number(prompt("Ingrese el total de la cuenta:"));
-        let propina = calcularPropina(totalCuenta); // Calcular la propina
+        // // Pedir el total al usuario
+        // let totalCuenta = Number(prompt("Ingrese el total de la cuenta:"));
+        // let propina = calcularPropina(totalCuenta); // Calcular la propina
 
-        // Mostrar el resultado
-        console.log("La cuenta total es: USD " + totalCuenta + " y La propina es: USD " + propina);
+        // // Mostrar el resultado
+        // console.log("La cuenta total es: USD " + totalCuenta + " y La propina es: USD " + propina);
 
         // //------------------------------------------------------------------------//
         // // 4.	En un sistema de autenticación de usuarios, se requiere verificar si las
@@ -88,7 +88,41 @@
         // { usuario: "user", contrasena: "abcd" }
         // ];
         // // Respuesta:
+        const usuariosRegistrados = [
+            { usuario: "admin", contrasena: "1234" },
+            { usuario: "user", contrasena: "abcd" }
+        ];
 
+        function autenticar(usuario, pass) {
+            for (let u of usuariosRegistrados) {
+                if (u.usuario === usuario && u.contrasena === pass) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function loginMaxIntentos(intentos) {
+            let contador = 0;
+
+            while (contador < intentos) {
+                let usuario = prompt("Ingrese usuario:");
+                let pass = prompt("Ingrese contraseña:");
+
+                if (autenticar(usuario, pass)) {
+                    alert("Acceso permitido");
+                    return; // Se detiene aquí
+                }
+                contador++;
+                if (contador === 1) alert("Credenciales incorrectas. Intento 1");
+                if (contador === 2) alert("Credenciales incorrectas. Intento 2");
+                if (contador === intentos) {
+                    alert("Credenciales incorrectas. Acceso bloqueado");
+                    return;
+                }
+            }
+        }
+        let login = loginMaxIntentos(3);
         // //------------------------------------------------------------------------//
         // 5.	Tienes un arreglo con las edades de un grupo de personas. El sistema necesita
         //  contar cuántas personas son menores de edad (menores de 18 años) y cuántas son
