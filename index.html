@@ -12,9 +12,24 @@
 
     <script>
         // //------------------------------------------------------------------------//
-        // 1.	Dado un número, crea una función que verifique si es primo. Un número es primo
-        //  si es mayor que 1 y no tiene divisores aparte de 1 y él mismo.
+        // 1.	Dado un número, crea una función que verifique si es primo. Un número
+        //  es primo si es mayor que 1 y no tiene divisores aparte de 1 y él mismo.
         // // Respuesta:
+        function esPrimo(num) {
+            if (num <= 1) return false;
+            for (let i = 2; i <= num / 2; i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        let numero = Number(prompt("Ingresa un número para verificar si es primo:"));
+
+        if (esPrimo(numero)) {
+            console.log(numero + " es primo");
+        } else {
+            console.log(numero + " NO es primo");
+        }
 
         // //------------------------------------------------------------------------//
         // 2.	Crea una función que calcule la diferencia entre el número más grande y el más
