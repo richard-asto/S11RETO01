@@ -14,22 +14,22 @@
         // //------------------------------------------------------------------------//
         // 1.	Dado un número, crea una función que verifique si es primo. Un número
         //  es primo si es mayor que 1 y no tiene divisores aparte de 1 y él mismo.
+
         // // Respuesta:
-        // function esPrimo(num) {
-        //     if (num <= 1) return false;
-        //     for (let i = 2; i <= num / 2; i++) {
-        //         if (num % i === 0) return false;
-        //     }
-        //     return true;
-        // }
+        function esPrimo(num) {
+            if (num <= 1) return false;
+            for (let i = 2; i <= num / 2; i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
 
-        // let numero = Number(prompt("Ingresa un número para verificar si es primo:"));
-
-        // if (esPrimo(numero)) {
-        //     console.log(numero + " es primo");
-        // } else {
-        //     console.log(numero + " NO es primo");
-        // }
+        let numero = Number(prompt("Ingresa un número para verificar si es primo:"));
+        if (esPrimo(numero)) {
+            console.log(numero + " es primo");
+        } else {
+            console.log(numero + " NO es primo");
+        }
 
         // //------------------------------------------------------------------------//
         // 2.	Crea una función que calcule la diferencia entre el número más grande y el más
@@ -336,44 +336,44 @@
         // ];
 
         // // Respuesta:
-        let vuelos = [
-            { vuelo: "A123", fecha: "2023-12-15", asientosDisponibles: 50 },
-            { vuelo: "B456", fecha: "2023-12-15", asientosDisponibles: 0 },
-            { vuelo: "C789", fecha: "2023-12-16", asientosDisponibles: 30 },
-        ];
+        // let vuelos = [
+        //     { vuelo: "A123", fecha: "2023-12-15", asientosDisponibles: 50 },
+        //     { vuelo: "B456", fecha: "2023-12-15", asientosDisponibles: 0 },
+        //     { vuelo: "C789", fecha: "2023-12-16", asientosDisponibles: 30 },
+        // ];
 
-        function buscarVuelos(fecha) {
-            let hayVuelos = false;
-            let disponibles = [];
+        // function buscarVuelos(fecha) {
+        //     let hayVuelos = false;
+        //     let disponibles = [];
 
-            for (let i = 0; i < vuelos.length; i++) {
-                if (vuelos[i].fecha === fecha) {
-                    hayVuelos = true;
+        //     for (let i = 0; i < vuelos.length; i++) {
+        //         if (vuelos[i].fecha === fecha) {
+        //             hayVuelos = true;
 
-                    if (vuelos[i].asientos > 0) {
-                        disponibles.push(vuelos[i]);
-                    }
-                }
-            }
-            if (!hayVuelos) {
-                return "No hay vuelos en esa fecha.";
-            }
-            if (disponibles.length === 0) {
-                return "Hay vuelos en esa fecha, pero NO tienen asientos disponibles.";
-            }
-            let mensaje = "Vuelos disponibles:\n";
-            for (let i = 0; i < disponibles.length; i++) {
-                mensaje += `${disponibles[i].vuelo}: ${disponibles[i].asientos} asientos\n`;
-            }
-            return mensaje;
-        }
-        // Pedir fecha
-        let fecha = prompt("Fecha del vuelo (YYYY-MM-DD):");
-        if (!fecha) {
-            alert("No ingresaste ninguna fecha.");
-        } else {
-            alert(buscarVuelos(fecha.trim()));
-        }
+        //             if (vuelos[i].asientos > 0) {
+        //                 disponibles.push(vuelos[i]);
+        //             }
+        //         }
+        //     }
+        //     if (!hayVuelos) {
+        //         return "No hay vuelos en esa fecha.";
+        //     }
+        //     if (disponibles.length === 0) {
+        //         return "Hay vuelos en esa fecha, pero NO tienen asientos disponibles.";
+        //     }
+        //     let mensaje = "Vuelos disponibles:\n";
+        //     for (let i = 0; i < disponibles.length; i++) {
+        //         mensaje += `${disponibles[i].vuelo}: ${disponibles[i].asientos} asientos\n`;
+        //     }
+        //     return mensaje;
+        // }
+        // // Pedir fecha
+        // let fecha = prompt("Fecha del vuelo (YYYY-MM-DD):");
+        // if (!fecha) {
+        //     alert("No ingresaste ninguna fecha.");
+        // } else {
+        //     alert(buscarVuelos(fecha.trim()));
+        // }
     </script>
 </body>
 
