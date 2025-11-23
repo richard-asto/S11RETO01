@@ -274,37 +274,57 @@
         // ];
 
         // // Respuesta:
-        function buscarHabitacion(lista, numeroBuscado) {
-            let disponible = false;
+        // function buscarHabitacion(lista, numeroBuscado) {
+        //     let disponible = false;
 
-            for (let i = 0; i < lista.length; i++) {
-                if (lista[i].numero === numeroBuscado) {
-                    disponible = lista[i].disponible;
-                }
-            }
-            return disponible;
-        }
+        //     for (let i = 0; i < lista.length; i++) {
+        //         if (lista[i].numero === numeroBuscado) {
+        //             disponible = lista[i].disponible;
+        //         }
+        //     }
+        //     return disponible;
+        // }
 
-        let habitaciones = [
-            { numero: 101, disponible: true },
-            { numero: 102, disponible: false },
-            { numero: 103, disponible: true },
-        ];
+        // let habitaciones = [
+        //     { numero: 101, disponible: true },
+        //     { numero: 102, disponible: false },
+        //     { numero: 103, disponible: true },
+        // ];
 
-        // Pedir número al usuario
-        let numeroIngresado = parseInt(prompt("Ingrese el número de habitación a consultar:"));
+        // // Pedir número al usuario
+        // let numeroIngresado = parseInt(prompt("Ingrese el número de habitación a consultar:"));
 
-        // Buscar disponibilidad
-        let resultado = buscarHabitacion(habitaciones, numeroIngresado);
+        // // Buscar disponibilidad
+        // let resultado = buscarHabitacion(habitaciones, numeroIngresado);
 
-        // Mostrar resultado
-        alert("¿Habitación disponible?:   " + resultado);
-        console.log(resultado);
+        // // Mostrar resultado
+        // alert("¿Habitación disponible?:   " + resultado);
+        // console.log(resultado);
 
         // //--------------------------------------------------------------------------------//
         // 10.	El sistema debe verificar si el código de promoción ingresado es válido.
         //  Los códigos válidos son: "PROMO10", "DESCUENTO20", y "AHORRO30".
+
         // // Respuesta:
+        function validarCodigo(codigo) {
+            let validos = ["PROMO10", "DESCUENTO20", "AHORRO30"];
+            let esValido = false;
+
+            // Recorrer todo el arreglo manualmente
+            for (let i = 0; i < validos.length; i++) {
+                if (codigo === validos[i]) {
+                    esValido = true;
+                }
+            }
+            return esValido;
+        }
+
+        let codigoIngresado = prompt("Ingrese el código de promoción:");
+
+        let resultado = validarCodigo(codigoIngresado); // Validar
+
+        alert("¿Código válido?:    " + resultado);
+        console.log(resultado)
 
         // //--------------------------------------------------------------------------------//
         // 11.	En una aerolínea, el sistema de reservas debe verificar si hay asientos
