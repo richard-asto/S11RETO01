@@ -166,29 +166,29 @@
         // { nombre: "Ensalada", precio: 20 }
         // ];
         // // Respuesta:
-        function totalPedido(pedido) {
-            let total = 0;
+        // function totalPedido(pedido) {
+        //     let total = 0;
 
-            // Sumar todos los precios
-            for (let i = 0; i < pedido.length; i++) {
-                total += pedido[i].precio;
-            }
+        //     // Sumar todos los precios
+        //     for (let i = 0; i < pedido.length; i++) {
+        //         total += pedido[i].precio;
+        //     }
 
-            // Aplicar descuento si corresponde
-            if (total > 100) {
-                total = total * 0.85; // 15% de descuento
-            }
+        //     // Aplicar descuento si corresponde
+        //     if (total > 100) {
+        //         total = total * 0.85; // 15% de descuento
+        //     }
 
-            return total;
-        }
+        //     return total;
+        // }
 
-        let pedido = [
-            { nombre: "Pizza", precio: 40 },
-            { nombre: "Pasta", precio: 50 },
-            { nombre: "Ensalada", precio: 20 }
-        ];
+        // let pedido = [
+        //     { nombre: "Pizza", precio: 40 },
+        //     { nombre: "Pasta", precio: 50 },
+        //     { nombre: "Ensalada", precio: 20 }
+        // ];
 
-        console.log(totalPedido(pedido)); // 93.5
+        // console.log(totalPedido(pedido));
         // //--------------------------------------------------------------------------------//
         // 7.	En una sala de seguridad, se permite el acceso solo a los empleados que hayan
         //  autenticado correctamente. El sistema de acceso recibe una contraseña y debe
@@ -196,8 +196,36 @@
         //  los empleados tienen hasta 3 intentos antes de que su acceso sea bloqueado por
         //  seguridad.
         //  let contraseñasValidas = ["admin123", "empleado456", "jefe789"]
-        // // Respuesta:
 
+        // // Respuesta:
+        let contraseñasValidas = ["admin123", "empleado456", "jefe789"]
+        function verificarAcceso(password) {
+            for (let i = 0; i < contraseñasValidas.length; i++) {
+                if (contraseñasValidas[i] === password) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function iniciarAcceso() {
+            let intentos = 0;
+
+            while (intentos < 3) {
+                let pass = prompt("Ingrese su contraseña:");
+                if (verificarAcceso(pass)) {
+                    alert("Acceso permitido");
+                    return; // Termina la función
+                } else {
+                    intentos++;
+                    alert("Contraseña incorrecta (" + intentos + "/3)");
+                }
+            }
+            // Si sale del while, está bloqueado
+            alert("Acceso bloqueado. Presione Enter para finalizar.");
+        }
+
+        iniciarAcceso();
         // //--------------------------------------------------------------------------------//
         // 8.	El sistema necesita validar si una contraseña es segura. Para que la contraseña
         //  sea válida, debe tener al menos 8 caracteres, contener al menos una letra mayúscula
