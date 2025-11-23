@@ -234,35 +234,35 @@
         // Contraseña = "Password123"
 
         // // Respuesta:
-        function contraseñaSegura(pass) {
-            let tieneMayus = false;
-            let tieneNumero = false;
-            // Recorrer cada carácter de la contraseña
-            for (let i = 0; i < pass.length; i++) {
-                let c = pass[i];
+        // function contraseñaSegura(pass) {
+        //     let tieneMayus = false;
+        //     let tieneNumero = false;
+        //     // Recorrer cada carácter de la contraseña
+        //     for (let i = 0; i < pass.length; i++) {
+        //         let c = pass[i];
 
-                if (c >= 'A' && c <= 'Z') {
-                    tieneMayus = true;
-                }
+        //         if (c >= 'A' && c <= 'Z') {
+        //             tieneMayus = true;
+        //         }
 
-                if (c >= '0' && c <= '9') {
-                    tieneNumero = true;
-                }
-            }
-            return pass.length >= 8 && tieneMayus && tieneNumero;
-        }
+        //         if (c >= '0' && c <= '9') {
+        //             tieneNumero = true;
+        //         }
+        //     }
+        //     return pass.length >= 8 && tieneMayus && tieneNumero;
+        // }
 
-        // --- Ingreso de contraseña por prompt ---
-        let pwd = prompt("Ingresa una contraseña para evaluar: ");
-        let resultado = contraseñaSegura(pwd);
+        // // --- Ingreso de contraseña por prompt ---
+        // let pwd = prompt("Ingresa una contraseña para evaluar: ");
+        // let resultado = contraseñaSegura(pwd);
 
-        if (resultado) {
-            console.log("Contraseña segura");
-            alert("Contraseña segura");
-        } else {
-            console.log("La contraseña NO es segura");
-            alert("La contraseña NO es segura.\nDebe tener al menos:\n- 8 caracteres\n- 1 mayúscula\n- 1 número");
-        }
+        // if (resultado) {
+        //     console.log("Contraseña segura");
+        //     alert("Contraseña segura");
+        // } else {
+        //     console.log("La contraseña NO es segura");
+        //     alert("La contraseña NO es segura.\nDebe tener al menos:\n- 8 caracteres\n- 1 mayúscula\n- 1 número");
+        // }
 
         // //--------------------------------------------------------------------------------//
         // 9.	Un sistema de reservas en línea para un hotel necesita verificar si hay
@@ -272,7 +272,34 @@
         // { numero: 102, disponible: false },
         // { numero: 103, disponible: true },
         // ];
+
         // // Respuesta:
+        function buscarHabitacion(lista, numeroBuscado) {
+            let disponible = false;
+
+            for (let i = 0; i < lista.length; i++) {
+                if (lista[i].numero === numeroBuscado) {
+                    disponible = lista[i].disponible;
+                }
+            }
+            return disponible;
+        }
+
+        let habitaciones = [
+            { numero: 101, disponible: true },
+            { numero: 102, disponible: false },
+            { numero: 103, disponible: true },
+        ];
+
+        // Pedir número al usuario
+        let numeroIngresado = parseInt(prompt("Ingrese el número de habitación a consultar:"));
+
+        // Buscar disponibilidad
+        let resultado = buscarHabitacion(habitaciones, numeroIngresado);
+
+        // Mostrar resultado
+        alert("¿Habitación disponible?:   " + resultado);
+        console.log(resultado);
 
         // //--------------------------------------------------------------------------------//
         // 10.	El sistema debe verificar si el código de promoción ingresado es válido.
